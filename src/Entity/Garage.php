@@ -38,15 +38,15 @@ class Garage
     private $adresse;
 
     /**
+     * @ORM\OneToMany(targetEntity=Annonce::class, mappedBy="garage", orphanRemoval=true)
+     */
+    private $annonces;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Professionnel::class, inversedBy="garages")
      * @ORM\JoinColumn(nullable=false)
      */
     private $professionnel;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Annonce::class, mappedBy="garage", orphanRemoval=true)
-     */
-    private $annonces;
 
     public function __construct()
     {
@@ -94,18 +94,6 @@ class Garage
         return $this;
     }
 
-    public function getProfessionnel(): ?Professionnel
-    {
-        return $this->professionnel;
-    }
-
-    public function setProfessionnel(?Professionnel $professionnel): self
-    {
-        $this->professionnel = $professionnel;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Annonce[]
      */
@@ -140,6 +128,18 @@ class Garage
     public function __toString()
     {
         return $this->nom;
+    }
+
+    public function getProfessionnel(): ?Professionnel
+    {
+        return $this->professionnel;
+    }
+
+    public function setProfessionnel(?Professionnel $professionnel): self
+    {
+        $this->professionnel = $professionnel;
+
+        return $this;
     }
 
 
