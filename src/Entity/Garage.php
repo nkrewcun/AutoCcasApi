@@ -7,8 +7,28 @@ use App\Repository\GarageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * @ApiResource(
+ *      collectionOperations = {
+ *          "get" = {
+ *              "normalization_context" = {"groups" = {"getGarage"}}
+ *          },
+ *          "post" = {
+ *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}}
+ *          }
+ *      },
+ *      itemOperations = {
+ *          "get" = {
+ *              "normalization_context" = {"groups" = {"getFullAnnonce"}}
+ *          },
+ *          "put" = {
+ *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}}
+ *          },
+ *          "delete"
+ *      }
+ *  )
  * @ApiResource()
  * @ORM\Entity(repositoryClass=GarageRepository::class)
  */

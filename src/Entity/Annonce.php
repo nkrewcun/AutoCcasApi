@@ -7,9 +7,49 @@ use App\Repository\AnnonceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
+use App\Controller\AnnoncesSearchController;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *      collectionOperations = {
+ *          "get" = {
+ *              "normalization_context" = {"groups" = {"getAnnoncesForIndex"}},
+ *              "pagination_enabled" = false,
+ *          },
+ *          "post" = {
+ *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}},
+ *          },
+ *          "search_annonces"={
+ *              "method"="GET",
+ *              "path"="/annonces/search",
+ *              "controller"=AnnoncesSearchController::class,
+ *              "pagination_enabled" = false,
+ *              "filters" = {},
+ *              "openapi_context" = {
+ *                  "summary" = "Retrieves the values for the search filters",
+ *              },
+ *          },
+ *      },
+ *      itemOperations = {
+ *          "get" = {
+ *              "normalization_context" = {"groups" = {"getFullAnnonce"}}
+ *          },
+ *          "admin_get" = {
+ *              "path" = "/admin/annonces/{id}",
+ *              "requirements" = {"id"="\d+"},
+ *              "method" = "GET",
+ *              "normalization_context" = {"groups" = {"getFullAnnonce"}},
+ *          },
+ *          "put" = {
+ *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}},
+ *          },
+ *          "delete",
+ *      }
+ *  )
+ * @ApiFilter(OrderFilter::class, properties={"datePublication": "DESC"})
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
  */
 class Annonce
@@ -18,69 +58,82 @@ class Annonce
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Groups({"getFullAnnonce"})
      */
     private $reference;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $titre;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"getFullAnnonce", "postPutFullAnnonce"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"getAnnoncesForIndex", "postPutFullAnnonce"})
      */
     private $descriptionCourte;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $anneeMiseCirculation;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $kilometrage;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $prix;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $datePublication;
 
     /**
      * @ORM\ManyToOne(targetEntity=Modele::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $modele;
 
     /**
      * @ORM\ManyToOne(targetEntity=Garage::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups ({"postPutFullAnnonce"})
      */
     private $garage;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeCarburant::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $carburant;
 
     /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="annonce", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="annonce", orphanRemoval=true, cascade={"persist"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
      */
     private $photos;
 
@@ -101,7 +154,7 @@ class Annonce
 
     public function setReference(string $reference): self
     {
-        $this->reference = $reference;
+        $reference ? $this->reference = $reference : $this->reference = uniqid();
 
         return $this;
     }

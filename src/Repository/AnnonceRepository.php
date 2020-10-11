@@ -19,6 +19,66 @@ class AnnonceRepository extends ServiceEntityRepository
         parent::__construct($registry, Annonce::class);
     }
 
+    public function findMaxPrice()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.prix')
+            ->orderBy('a.prix', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findMinPrice()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.prix')
+            ->orderBy('a.prix', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findMaxKilometrage()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.kilometrage')
+            ->orderBy('a.kilometrage', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findMinKilometrage()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.kilometrage')
+            ->orderBy('a.kilometrage', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findMaxAnneeCirculation()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.anneeMiseCirculation')
+            ->orderBy('a.anneeMiseCirculation', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findMinAnneeCirculation()
+    {
+        return $this->createQueryBuilder('a')
+            ->select('a.anneeMiseCirculation')
+            ->orderBy('a.anneeMiseCirculation', 'ASC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Annonce[] Returns an array of Annonce objects
     //  */

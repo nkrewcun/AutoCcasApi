@@ -7,6 +7,7 @@ use App\Repository\ModeleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ApiResource()
@@ -18,17 +19,20 @@ class Modele
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})²
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})²
      */
     private $nom;
 
     /**
      * @ORM\ManyToOne(targetEntity=Marque::class, inversedBy="modeles")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})²
      */
     private $marque;
 

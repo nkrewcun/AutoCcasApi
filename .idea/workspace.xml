@@ -11,6 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abe3583b-a20d-4edd-9d34-05b1be6324bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/AutoCcasApi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AutoCcasApi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -19,6 +21,14 @@
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Annonce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Annonce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Garage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Garage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Marque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Marque.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Modele.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Modele.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Photo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/TypeCarburant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypeCarburant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +131,9 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
     </include_path>
   </component>
   <component name="ProjectId" id="1guXA0ZmkcdAcHwDPO0Zgv2IYVG" />
@@ -132,10 +145,11 @@
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Repository" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -153,7 +167,39 @@
       <updated>1598965303292</updated>
       <workItem from="1598965304727" duration="4843000" />
       <workItem from="1598986926186" duration="1800000" />
-      <workItem from="1599030231555" duration="9349000" />
+      <workItem from="1599030231555" duration="10764000" />
+      <workItem from="1599049975457" duration="4000" />
+      <workItem from="1599051137812" duration="5542000" />
+      <workItem from="1599064032138" duration="1411000" />
+      <workItem from="1599117305530" duration="8425000" />
+      <workItem from="1599208923269" duration="4000" />
+      <workItem from="1599209006772" duration="1444000" />
+      <workItem from="1599464319152" duration="9536000" />
+      <workItem from="1599505035546" duration="2573000" />
+      <workItem from="1599548801673" duration="10255000" />
+      <workItem from="1599635367762" duration="8000" />
+      <workItem from="1599642145401" duration="1818000" />
+      <workItem from="1599662155644" duration="3655000" />
+      <workItem from="1599677860822" duration="6863000" />
+      <workItem from="1599739397329" duration="1258000" />
+      <workItem from="1599748566734" duration="1000" />
+      <workItem from="1599918555913" duration="23000" />
+      <workItem from="1599929857782" duration="86000" />
+      <workItem from="1600328017041" duration="1224000" />
+      <workItem from="1600432141783" duration="5000" />
+      <workItem from="1601321323644" duration="647000" />
+      <workItem from="1601321995729" duration="4229000" />
+      <workItem from="1601366264202" duration="15000" />
+      <workItem from="1601366377587" duration="671000" />
+      <workItem from="1601368461723" duration="174000" />
+      <workItem from="1601402093717" duration="4988000" />
+      <workItem from="1601492055975" duration="1345000" />
+      <workItem from="1601539826321" duration="54000" />
+      <workItem from="1601540570655" duration="12000" />
+      <workItem from="1601548267728" duration="208000" />
+      <workItem from="1601553100551" duration="118000" />
+      <workItem from="1601813914105" duration="6059000" />
+      <workItem from="1602423932595" duration="22876000" />
     </task>
     <servers />
   </component>
@@ -180,18 +226,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599032316761" />
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1599042318996">
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1599124336682">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599042318996" />
-    <state x="618" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598987126202">
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599124336682" />
+    <state x="618" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602428329910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="618" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598987126202" />
+    <state x="618" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602428329910" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1599635374028">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599635374028" />
     <state width="224" height="457" key="HiddenNamespacesPopup" timestamp="1599032363284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="224" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1599032363284" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1602433464569">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602433464569" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599046830106">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
