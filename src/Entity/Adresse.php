@@ -7,8 +7,10 @@ use App\Repository\AdresseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * TODO: Security on all operations
  * @ApiResource()
  * @ORM\Entity(repositoryClass=AdresseRepository::class)
  */
@@ -18,31 +20,37 @@ class Adresse
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $ligne1;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $ligne2;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $ligne3;
 
     /**
      * @ORM\Column(type="string", length=5)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $codePostal;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $commune;
 

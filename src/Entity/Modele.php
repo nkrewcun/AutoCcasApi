@@ -10,7 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource()
+ * TODO: Security on post, put and delete
+ * @ApiResource(
+ * )
  * @ORM\Entity(repositoryClass=ModeleRepository::class)
  */
 class Modele
@@ -19,20 +21,20 @@ class Modele
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})²
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})²
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $nom;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Marque::class, inversedBy="modeles")
+     * @ORM\ManyToOne(targetEntity=Marque::class, inversedBy="modeles", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})²
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $marque;
 

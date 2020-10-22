@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * TODO: Security on post, put and delete
  * @ApiResource()
  * @ORM\Entity(repositoryClass=TypeCarburantRepository::class)
  */
@@ -19,13 +20,13 @@ class TypeCarburant
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin"})
      */
     private $nom;
 

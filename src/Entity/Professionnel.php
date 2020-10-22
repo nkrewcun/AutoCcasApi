@@ -8,8 +8,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use ApiPlatform\Core\Annotation\ApiSubresource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * TODO: Security on all operations
  * @ApiResource()
  * @ORM\Entity(repositoryClass=ProfessionnelRepository::class)
  */
@@ -19,11 +22,13 @@ class Professionnel implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"getGaragesForAdmin", "getGarageForAdmin"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups({"getGaragesForAdmin", "getGarageForAdmin"})
      */
     private $email;
 
@@ -40,21 +45,25 @@ class Professionnel implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"getGaragesForAdmin", "getGarageForAdmin"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"getGaragesForAdmin", "getGarageForAdmin"})
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=14)
+     * @Groups({"getGaragesForAdmin", "getGarageForAdmin"})
      */
     private $numeroSiret;
 
     /**
      * @ORM\OneToMany(targetEntity=Garage::class, mappedBy="professionnel", orphanRemoval=true)
+     * @ApiSubresource(maxDepth=1)
      */
     private $garages;
 

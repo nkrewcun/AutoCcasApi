@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
+ * TODO: Security on post, put and delete
  * @ApiResource()
  * @ORM\Entity(repositoryClass=PhotoRepository::class)
  */
@@ -17,19 +18,19 @@ class Photo
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $source;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $label;
 

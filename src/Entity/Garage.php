@@ -8,23 +8,32 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 
 /**
+ * TODO: Security on all operations
  * @ApiResource(
  *      collectionOperations = {
  *          "get" = {
- *              "normalization_context" = {"groups" = {"getGarage"}}
+ *              "path" = "/admin/garages",
+ *              "normalization_context" = {"groups" = {"getGaragesForAdmin"}}
  *          },
  *          "post" = {
- *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}}
+ *              "denormalization_context" = {"groups" = {"postPutGarage"}}
  *          }
  *      },
  *      itemOperations = {
  *          "get" = {
- *              "normalization_context" = {"groups" = {"getFullAnnonce"}}
+ *              "normalization_context" = {"groups" = {"getGarage"}}
+ *          },
+ *          "admin_get" = {
+ *              "path" = "/admin/garages/{id}",
+ *              "requirements" = {"id"="\d+"},
+ *              "method" = "GET",
+ *              "normalization_context" = {"groups" = {"getGarageForAdmin"}}
  *          },
  *          "put" = {
- *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}}
+ *              "denormalization_context" = {"groups" = {"postPutGarage"}}
  *          },
  *          "delete"
  *      }
@@ -38,33 +47,39 @@ class Garage
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $numeroTel;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Adresse::class, inversedBy="garages")
+     * @ORM\ManyToOne(targetEntity=Adresse::class, inversedBy="garages", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $adresse;
 
     /**
      * @ORM\OneToMany(targetEntity=Annonce::class, mappedBy="garage", orphanRemoval=true)
+     * @ApiSubresource
      */
     private $annonces;
 
     /**
      * @ORM\ManyToOne(targetEntity=Professionnel::class, inversedBy="garages")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
      */
     private $professionnel;
 

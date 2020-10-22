@@ -13,6 +13,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use App\Controller\AnnoncesSearchController;
 
 /**
+ * TODO: Security on post, put and delete
  * @ApiResource(
  *      collectionOperations = {
  *          "get" = {
@@ -41,13 +42,19 @@ use App\Controller\AnnoncesSearchController;
  *              "path" = "/admin/annonces/{id}",
  *              "requirements" = {"id"="\d+"},
  *              "method" = "GET",
- *              "normalization_context" = {"groups" = {"getFullAnnonce"}},
+ *              "normalization_context" = {"groups" = {"getAnnonceForAdmin"}},
  *          },
  *          "put" = {
  *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}},
  *          },
  *          "delete",
- *      }
+ *      },
+ *     subresourceOperations={
+ *          "api_garages_annonces_get_subresource"= {
+ *              "method"="GET",
+ *              "normalization_context"={"groups"={"getAnnoncesForIndex"}}
+ *          }
+ *     }
  *  )
  * @ApiFilter(OrderFilter::class, properties={"datePublication": "DESC"})
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
@@ -58,25 +65,25 @@ class Annonce
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=10)
-     * @Groups({"getFullAnnonce"})
+     * @Groups({"getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $reference;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $titre;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $description;
 
@@ -88,52 +95,52 @@ class Annonce
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $anneeMiseCirculation;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $kilometrage;
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $prix;
 
     /**
      * @ORM\Column(type="date")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $datePublication;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Modele::class, inversedBy="annonces")
+     * @ORM\ManyToOne(targetEntity=Modele::class, inversedBy="annonces", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $modele;
 
     /**
      * @ORM\ManyToOne(targetEntity=Garage::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups ({"postPutFullAnnonce"})
+     * @Groups ({"getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $garage;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeCarburant::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $carburant;
 
     /**
      * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="annonce", orphanRemoval=true, cascade={"persist"})
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
      */
     private $photos;
 
