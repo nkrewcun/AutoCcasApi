@@ -11,7 +11,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * TODO: Security on post, put and delete
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"pagination_enabled"=false}
+ * )
  * @ORM\Entity(repositoryClass=MarqueRepository::class)
  */
 class Marque
