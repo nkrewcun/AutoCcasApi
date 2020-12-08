@@ -22,13 +22,13 @@ class TypeCarburant
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "getAnnonceForEdit", "postPutFullAnnonce"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "getAnnonceForEdit", "postPutFullAnnonce"})
      */
     private $nom;
 

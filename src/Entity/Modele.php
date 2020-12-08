@@ -22,13 +22,13 @@ class Modele
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $nom;
 

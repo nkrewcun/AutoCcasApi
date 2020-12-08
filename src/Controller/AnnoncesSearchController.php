@@ -15,7 +15,7 @@ class AnnoncesSearchController extends AbstractController
         $this->annonceRepository = $annonceRepository;
     }
 
-    public function __invoke()
+    public function __invoke(): \stdClass
     {
         $data = new \stdClass();
         $data->prixMax = $this->annonceRepository->findMaxPrice()[0]['prix'];

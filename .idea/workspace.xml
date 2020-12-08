@@ -11,25 +11,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abe3583b-a20d-4edd-9d34-05b1be6324bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AutoCcasApi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AutoCcasApi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/1315d73ce60a365f73931650741fa41b2016630d" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/1315d73ce60a365f73931650741fa41b2016630d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/e/3ea321f4bacc35be29ad65901c4f7a25eca61c2e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/e/3ea321f4bacc35be29ad65901c4f7a25eca61c2e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6f1292f3415cb418b6cb3196cbcdbf3768a93638" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/f/6f1292f3415cb418b6cb3196cbcdbf3768a93638" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/1/813b0cda6f4d53a93b8fc1d89a3b5d8a7a9b459b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/9/9947b9656b147b5fb489119988fd3b20274006b2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/9/9947b9656b147b5fb489119988fd3b20274006b2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b78fc83ed4fd07909894785d96ecf97e9bf10b98" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b78fc83ed4fd07909894785d96ecf97e9bf10b98" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bb2a6a85cbb87546605a6e034df8c1fa390c2dcd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bb2a6a85cbb87546605a6e034df8c1fa390c2dcd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9601b889989336ba2f0f228735493580c108ffc" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9601b889989336ba2f0f228735493580c108ffc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/api_platform.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AnnoncesSearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnnoncesSearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Annonce.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Annonce.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Garage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Garage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Marque.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Marque.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Modele.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Modele.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Photo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Photo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Professionnel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Professionnel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/TypeCarburant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypeCarburant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnnonceRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +147,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.file-colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -200,6 +199,43 @@
       <workItem from="1601553100551" duration="118000" />
       <workItem from="1601813914105" duration="6059000" />
       <workItem from="1602423932595" duration="22876000" />
+      <workItem from="1602486317714" duration="155000" />
+      <workItem from="1602620171942" duration="1518000" />
+      <workItem from="1602659645427" duration="27000" />
+      <workItem from="1602844771515" duration="273000" />
+      <workItem from="1602943313586" duration="4631000" />
+      <workItem from="1603029210663" duration="485000" />
+      <workItem from="1603029732294" duration="10597000" />
+      <workItem from="1603091429242" duration="86000" />
+      <workItem from="1603093445546" duration="7018000" />
+      <workItem from="1603178806465" duration="1300000" />
+      <workItem from="1603180277777" duration="3485000" />
+      <workItem from="1603203901607" duration="1530000" />
+      <workItem from="1603216252277" duration="12961000" />
+      <workItem from="1603263865699" duration="35000" />
+      <workItem from="1603306011062" duration="4431000" />
+      <workItem from="1603375657138" duration="135000" />
+      <workItem from="1603397030436" duration="1804000" />
+      <workItem from="1603437719403" duration="672000" />
+      <workItem from="1603438757274" duration="4373000" />
+      <workItem from="1603875500937" duration="194000" />
+      <workItem from="1603876168728" duration="1990000" />
+      <workItem from="1603919106304" duration="35000" />
+      <workItem from="1603920038688" duration="759000" />
+      <workItem from="1603959693508" duration="553000" />
+      <workItem from="1604408326908" duration="605000" />
+      <workItem from="1604512887906" duration="607000" />
+      <workItem from="1605114480409" duration="990000" />
+      <workItem from="1605115650492" duration="512000" />
+      <workItem from="1605558477165" duration="1869000" />
+      <workItem from="1606333142138" duration="763000" />
+      <workItem from="1606391873362" duration="1667000" />
+      <workItem from="1606666995600" duration="2921000" />
+      <workItem from="1606724411621" duration="11000" />
+      <workItem from="1607069508002" duration="339000" />
+      <workItem from="1607069907391" duration="5891000" />
+      <workItem from="1607278030475" duration="8456000" />
+      <workItem from="1607328726668" duration="28829000" />
     </task>
     <servers />
   </component>
@@ -220,35 +256,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599032316761">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599032316761" />
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1599124336682">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599124336682" />
-    <state x="618" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602428329910">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="618" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602428329910" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1599635374028">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599635374028" />
-    <state width="224" height="457" key="HiddenNamespacesPopup" timestamp="1599032363284">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="224" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1599032363284" />
-    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1602433464569">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602433464569" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599046830106">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599046830106" />
   </component>
 </project>

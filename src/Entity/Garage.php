@@ -33,7 +33,8 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
  *              "normalization_context" = {"groups" = {"getGarageForAdmin"}}
  *          },
  *          "put" = {
- *              "denormalization_context" = {"groups" = {"postPutGarage"}}
+ *              "denormalization_context" = {"groups" = {"postPutGarage"}},
+ *              "security" = "(is_granted('ROLE_USER') and object.getProfessionnel() == user) or (is_granted('ROLE_ADMIN'))"
  *          },
  *          "delete"
  *      }
@@ -47,13 +48,13 @@ class Garage
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin"})
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "getAnnonceForEdit", "postPutFullAnnonce"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage"})
+     * @Groups({"getGarage", "getGaragesForAdmin", "getGarageForAdmin", "postPutGarage", "getAnnonceForEdit", "postPutFullAnnonce"})
      */
     private $nom;
 

@@ -13,7 +13,18 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * TODO: Security on all operations
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"security"="is_granted('ROLE_USER')"},
+ *     collectionOperations = {
+ *          "get" = {"security"="is_granted('ROLE_ADMIN')"},
+ *          "post" = {"security"="is_granted('ROLE_ADMIN')"}
+ *      },
+ *      itemOperations = {
+ *          "get",
+ *          "put" = {"security"="object.getUsername() == user.getUsername()"},
+ *          "delete" = {"security"="is_granted('ROLE_ADMIN')"}
+ *      }
+ *  )
  * @ORM\Entity(repositoryClass=ProfessionnelRepository::class)
  */
 class Professionnel implements UserInterface

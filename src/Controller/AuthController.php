@@ -38,4 +38,18 @@ class AuthController extends AbstractController
     {
         return new Response(sprintf('Logged in as %s', $this->getUser()->getUsername()));
     }
+
+    public function getUser() {
+
+        /** @var Professionnel $user */
+        $user = parent::getUser();
+        $trimmedUser = new \stdClass();
+        $trimmedUser->id = $user->getId();
+        $trimmedUser->email = $user->getEmail();
+        $trimmedUser->prenom = $user->getPrenom();
+        $trimmedUser->nom = $user->getNom();
+        $trimmedUser->numeroSiret = $user->getNumeroSiret();
+        return $this->json($trimmedUser);
+    }
+
 }

@@ -13,7 +13,6 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use App\Controller\AnnoncesSearchController;
 
 /**
- * TODO: Security on post, put and delete
  * @ApiResource(
  *      collectionOperations = {
  *          "get" = {
@@ -22,6 +21,7 @@ use App\Controller\AnnoncesSearchController;
  *          },
  *          "post" = {
  *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}},
+ *              "security"="is_granted('ROLE_USER')"
  *          },
  *          "search_annonces"={
  *              "method"="GET",
@@ -38,16 +38,25 @@ use App\Controller\AnnoncesSearchController;
  *          "get" = {
  *              "normalization_context" = {"groups" = {"getFullAnnonce"}}
  *          },
+ *          "get_for_edit" = {
+ *              "path" = "/annonces/for_edit/{id}",
+ *              "requirements" = {"id"="\d+"},
+ *              "method" = "GET",
+ *              "normalization_context" = {"groups" = {"getAnnonceForEdit"}},
+ *              "security"="(is_granted('ROLE_USER') and object.getGarage().getProfessionnel() == user) or is_granted('ROLE_ADMIN')"
+ *          },
  *          "admin_get" = {
  *              "path" = "/admin/annonces/{id}",
  *              "requirements" = {"id"="\d+"},
  *              "method" = "GET",
  *              "normalization_context" = {"groups" = {"getAnnonceForAdmin"}},
+ *              "security"="is_granted('ROLE_ADMIN')"
  *          },
  *          "put" = {
  *              "denormalization_context" = {"groups" = {"postPutFullAnnonce"}},
+ *              "security"="(is_granted('ROLE_USER') and object.getGarage().getProfessionnel() == user) or is_granted('ROLE_ADMIN')"
  *          },
- *          "delete",
+ *          "delete" = {"security"="(is_granted('ROLE_USER') and object.getGarage().getProfessionnel() == user) or is_granted('ROLE_ADMIN')"},
  *      },
  *     subresourceOperations={
  *          "api_garages_annonces_get_subresource"= {
@@ -65,7 +74,7 @@ class Annonce
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "getAnnonceForEdit"})
      */
     private $id;
 
@@ -77,70 +86,70 @@ class Annonce
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $titre;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"getAnnoncesForIndex", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $descriptionCourte;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $anneeMiseCirculation;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $kilometrage;
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $prix;
 
     /**
      * @ORM\Column(type="date")
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $datePublication;
 
     /**
      * @ORM\ManyToOne(targetEntity=Modele::class, inversedBy="annonces", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $modele;
 
     /**
      * @ORM\ManyToOne(targetEntity=Garage::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups ({"getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups ({"getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $garage;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeCarburant::class, inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $carburant;
 
     /**
      * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="annonce", orphanRemoval=true, cascade={"persist"})
-     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce"})
+     * @Groups({"getAnnoncesForIndex", "getFullAnnonce", "getAnnonceForAdmin", "postPutFullAnnonce", "getAnnonceForEdit"})
      */
     private $photos;
 
